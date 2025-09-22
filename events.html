@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
+    body {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('events.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .topnav {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+    .topnav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 10px 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .topnav a:hover { color: #f6c85f; }
+
+    /* Heading */
+    h1 {
+      text-align: center;
+      margin: 70px 20px 40px;
+      font-size: 3em;
+      color: #f6c85f;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    /* Event Section */
+    .event-section {
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    .event-card {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .event-date {
+      width: 90px;
+      height: 100px;
+      background: #f6c85f;
+      color: #000;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+    .event-date h2 { margin: 0; font-size: 28px; }
+    .event-date span { font-size: 12px; text-transform: uppercase; }
+
+    .event-details { flex: 1; }
+    .event-title { font-size: 18px; margin: 0 0 8px; color: #ffe680; }
+    .time { font-size: 15px; opacity: 0.9; }
+
+    /* Footer */
+    .ash-bottom {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: rgba(51,51,51,0.85);
+      padding: 40px;
+      text-align: center;
+      border-radius: 15px;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    .ash-bottom h3 { margin-bottom: 15px; color:#f6c85f; }
+    .ash-bottom p { font-size:16px; line-height:1.6; margin-bottom:10px; }
+    .social-icons {
+      margin:15px 0;
+      display:flex;
+      justify-content:center;
+      gap:15px;
+    }
+    .social-icons a {
+      color:#fff;
+      font-size:22px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-icons a:hover { color:#f6c85f; transform: scale(1.2); }
+
+    /* Responsive */
+    @media(max-width:768px) {
+      h1 { font-size:2.2em; margin-top:60px; }
+      .topnav a { margin:8px 12px; font-size:16px; }
+      .event-card { flex-direction: column; align-items: flex-start; }
+      .event-date { width: 100%; flex-direction: row; justify-content: space-between; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About Us</a>
+    <a href="visit.html">Visit Us</a>
+  </div>
+
+  <!-- Heading -->
+  <h1>Events<br>2025</h1>
+
+  <!-- Event Section -->
+  <div class="event-section">
+
+    <div class="event-card">
+      <div class="event-date"><h2>09</h2><span>OCT</span></div>
+      <div class="event-details">
+        <p class="event-title">കൊടിയേറ്റം</p>
+        <p class="time">🕒 8:00-AM</p>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date"><h2>18</h2><span>OCT</span></div>
+      <div class="event-details">
+        <p class="event-title">വി.കുർബ്ബാന, ലദീഞ്ഞ്, കൂടുതുറക്കൽ, രൂപം എഴുന്നള്ളിക്കൽ, പ്രദക്ഷിണം, നൊവേന</p>
+        <p class="time">🕒 5:30-PM</p>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date"><h2>19</h2><span>OCT</span></div>
+      <div class="event-details">
+        <p class="event-title">വി.കുർബാന</p>
+        <p class="time">🕒 6:00-AM | 8:00-AM | 4:00-PM</p>
+      </div>
+      <div class="event-details">
+        <p class="event-title">ആഘോഷമായ തിരുന്നാൾ പാട്ടു കുർബ്ബാന, തിരുന്നാൾ സന്ദേശം</p>
+        <p class="time">🕒 10:00-AM</p>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date"><h2>26</h2><span>OCT</span></div>
+      <div class="event-details">
+        <p class="event-title">(എട്ടാമിടം) പാട്ടു കുർബ്ബാന, ജപമാല പ്രദക്ഷിണം, ലദീഞ്ഞ്, നൊവേന</p>
+        <p class="time">🕒 9:00-AM | 3:00-PM</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="ash-bottom">
+    <h3>St.Mary's Church Kottekad</h3>
+    <p>9400135253</p>
+    <p>✉ kizhakbhagam@gmail.com</p>
+    <p>
+      St. Mary's Assumption Forane Church <br>
+      Mundur - Kottekkad Road, Kottekkad, Kuttoor,<br>
+      Thrissur, Kerala 680308
+    </p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/kizhak__bagam?igsh=Mm9sa3VsbWpmOGI5"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@st.marysassumptionforanechurch?si=LcdcWMblN64-mVKT"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/foranechurchkottekad/"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <p>Developed By: SHEEN C NIXON</p>
+  </div>
+
+  <!-- JS Animation -->
+  <script>
+    window.addEventListener('load', () => {
+      gsap.to(".topnav", {duration:1, opacity:1, y:0, ease:"power2.out"});
+      gsap.to("h1", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.3});
+      gsap.to(".event-section", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.6});
+      gsap.to(".ash-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.9});
+    });
+  </script>
+
+</body>
+</html>

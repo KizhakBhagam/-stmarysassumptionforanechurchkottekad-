@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
+    body {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('about img.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .topnav {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+    .topnav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 10px 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .topnav a:hover { color: #f6c85f; }
+
+    /* Heading */
+    h1 {
+      text-align: center;
+      margin: 80px 20px 40px 20px;
+      font-size: 3em;
+      color: #f6c85f;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    /* Committee Info Box */
+    .white-bottom {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.95);
+      padding: 40px;
+      border-radius: 15px;
+      color: #333;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    .white-bottom .details { font-size:16px; line-height:1.6; margin-bottom:20px; color:#555; text-align:center; }
+    .white-bottom h2.title { font-size:28px; font-weight:bold; margin:20px 0 10px; color:#be8719; text-align:center; }
+    .white-bottom h2.position { font-size:20px; margin-top:20px; color:#ddc24cda; text-align:center; }
+    .white-bottom h3.name { font-size:25px; margin:5px 0; color:#be8719; text-align:center; }
+
+    /* Footer */
+    .ash-bottom {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: rgba(51,51,51,0.85);
+      padding: 40px;
+      text-align: center;
+      border-radius: 15px;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    .ash-bottom h3 { margin-bottom: 15px; color:#f6c85f; }
+    .ash-bottom p { font-size:16px; line-height:1.6; margin-bottom:10px; }
+    .social-icons {
+      margin:15px 0;
+      display:flex;
+      justify-content:center;
+      gap:15px;
+    }
+    .social-icons a {
+      color:#fff;
+      font-size:22px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-icons a:hover { color:#f6c85f; transform: scale(1.2); }
+
+    /* Responsive */
+    @media(max-width:768px) {
+      h1 { font-size:2.2em; margin-top:60px; }
+      .topnav a { margin:8px 12px; font-size:16px; }
+      .white-bottom { padding:25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About Us</a>
+    <a href="visit.html">Visit Us</a>
+  </div>
+
+  <!-- Heading -->
+  <h1>About Us</h1>
+
+  <!-- Committee Info -->
+  <div class="white-bottom">
+    <p class="details">Members of the East Side Parish Committee</p>
+    <p class="details">
+      Shaju Brahmakulam, Joss Brahmakulam, Derin B.D., Jomon E.I., Eljo Chakkalakkal, Jirin Joss, Joss Chittilappilly, Biju Joy, Sibu Mechery, Dinty K.A., Shaju Pallan, Joseph Pottathuparambil.<br>
+      The East Side is a large section of the faithful belonging to Kottekkad Church. It functions through several units, and in each unit, activities are carried out under the leadership of a President, Secretary, and Treasurer. By actively organizing worship services and festivals, the East Side Committee continues to serve as a strength to the parish in both spiritual and social spheres.
+    </p>
+
+    <h2 class="title">കിഴക്കുഭാഗം ആഘോഷകമ്മിറ്റി കൺവീനർമാർ</h2>
+
+    <h2 class="position">Convener</h2>
+    <h3 class="name">Lison Kolagadan</h3>
+
+    <h2 class="position">Joint Convener</h2>
+    <h3 class="name">Biju Varghees</h3>
+    <h3 class="name">Bijomwone Thekethala</h3>
+    <h3 class="name">Baby Emmaty</h3>
+
+    <h2 class="position">Secretary</h2>
+    <h3 class="name">Jophy Chandhy</h3>
+
+    <h2 class="position">Joint Secretary</h2>
+    <h3 class="name">Anto Jose Thaykattil</h3>
+
+    <h2 class="position">Treasurer</h2>
+    <h3 class="name">Senil Sebi K</h3>
+
+    <h2 class="position">Charity Convener</h2>
+    <h3 class="name">Joby Mundadan</h3>
+  </div>
+
+  <!-- Footer -->
+  <div class="ash-bottom">
+    <h3>St.Mary's Church Kottekad</h3>
+    <p> 9400135253</p>
+    <p>✉ kizhakbhagam@gmail.com</p>
+    <p>
+      St. Mary's Assumption Forane Church <br>
+      Mundur - Kottekkad Road, Kottekkad, Kuttoor,<br>
+      Thrissur, Kerala 680308
+    </p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/kizhak__bagam?igsh=Mm9sa3VsbWpmOGI5"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@st.marysassumptionforanechurch?si=LcdcWMblN64-mVKT"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/foranechurchkottekad/"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <p>Developed By: SHEEN C NIXON</p>
+  </div>
+
+  <!-- JS Animation -->
+  <script>
+    window.addEventListener('load', () => {
+      gsap.to(".topnav", {duration:1, opacity:1, y:0, ease:"power2.out"});
+      gsap.to("h1", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.3});
+      gsap.to(".white-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.6});
+      gsap.to(".ash-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.9});
+    });
+  </script>
+
+</body>
+</html>

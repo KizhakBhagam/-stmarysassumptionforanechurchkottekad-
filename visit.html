@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif;}
+body {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('visit.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* Navbar */
+.navbar {
+  display:flex;
+  justify-content:center;
+  padding:20px;
+  background: rgba(0,0,0,0.6);
+  flex-wrap:wrap;
+  opacity:0;
+}
+.navbar a {
+  color:#fff;
+  text-decoration:none;
+  margin:10px 20px;
+  font-weight:500;
+  transition:color 0.3s;
+}
+.navbar a:hover { color:#f6c85f; }
+
+/* Heading */
+h1 {
+  text-align:center;
+  margin:80px 20px 40px;
+  font-size:3em;
+  color:#f6c85f;
+  opacity:0;
+  transform: translateY(50px);
+}
+
+/* Contact Box */
+.contact-container {
+  max-width:1000px;
+  margin:40px auto;
+  background: rgba(255,255,255,0.95);
+  padding:40px;
+  border-radius:15px;
+  color:#333;
+  opacity:0;
+  transform: translateY(50px);
+}
+.contact-container h2 { text-align:center; margin-bottom:30px; color:#333; }
+
+.contact-form input, .contact-form textarea {
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font-size:16px;
+}
+.name-fields { display:flex; gap:10px; flex-wrap:wrap; }
+.name-fields input { flex:1; }
+.contact-form button {
+  background:#f6c85f;
+  border:none;
+  color:#333;
+  padding:12px 25px;
+  cursor:pointer;
+  font-size:18px;
+  border-radius:8px;
+  transition:0.3s;
+}
+.contact-form button:hover { background:#e0b94f; }
+
+/* Map */
+.map iframe { width:100%; height:350px; border:none; border-radius:10px; margin-top:20px; }
+
+/* Footer (same style as About/Index) */
+.footer {
+  max-width:1100px;
+  margin:40px auto;
+  background: rgba(51,51,51,0.85);
+  padding:40px;
+  text-align:center;
+  border-radius:15px;
+  color:#fff;
+  opacity:0;
+  transform: translateY(50px);
+}
+.footer h3 { margin-bottom:15px; color:#f6c85f; }
+.footer p { font-size:16px; line-height:1.6; margin-bottom:10px; }
+.social-icons { margin:15px 0; display:flex; justify-content:center; gap:15px; }
+.social-icons a { color:#fff; font-size:22px; transition: transform 0.3s, color 0.3s; }
+.social-icons a:hover { color:#f6c85f; transform: scale(1.2); }
+
+/* Responsive */
+@media(max-width:768px){
+  h1 { font-size:2em; margin-top:60px; }
+  .navbar a { font-size:16px; margin:8px 12px; }
+  .contact-container { padding:25px; }
+  .contact-form button { width:100%; font-size:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="events.html">Events</a>
+  <a href="about.html">About Us</a>
+  <a href="visit.html">Visit Us</a>
+</div>
+
+<!-- Heading -->
+<h1>Visit Us</h1>
+
+<!-- Contact Form & Map -->
+<div class="contact-container">
+  <form class="contact-form">
+    <div class="name-fields">
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Last Name" required>
+    </div>
+    <input type="email" placeholder="Email *" required>
+    <textarea rows="5" placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.090690394235!2d76.19056507480933!3d10.56773588956701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7eebb759124b9%3A0x534650d12af3a08d!2sSt.%20Mary's%20Assumption%20Forane%20Church!5e0!3m2!1sen!2sin!4v1726904984906!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h3>St.Mary's Church Kottekad</h3>
+  <p>9400135253</p>
+  <p>✉ kizhakbhagam@gmail.com</p>
+  <p>
+    St. Mary's Assumption Forane Church <br>
+    Mundur - Kottekkad Road, Kottekkad, Kuttoor,<br>
+    Thrissur, Kerala 680308
+  </p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kizhak__bagam?igsh=Mm9sa3VsbWpmOGI5"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/@st.marysassumptionforanechurch?si=LcdcWMblN64-mVKT"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/foranechurchkottekad/"><i class="fab fa-facebook-f"></i></a>
+  </div>
+  <p>Developed By: SHEEN C NIXON</p>
+</div>
+
+<!-- GSAP Animations -->
+<script>
+window.addEventListener('load', () => {
+  gsap.to(".navbar", {duration:1, opacity:1, y:0, ease:"power2.out"});
+  gsap.to("h1", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.3});
+  gsap.to(".contact-container", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.6});
+  gsap.to(".footer", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.9});
+});
+</script>
+
+</body>
+</html>
