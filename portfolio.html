@@ -31,6 +31,7 @@
       background: rgba(0,0,0,0.6);
       flex-wrap: wrap;
       opacity: 0;
+      transition: max-height 0.4s ease;
     }
     .topnav a {
       color: #fff;
@@ -38,8 +39,24 @@
       margin: 10px 20px;
       font-weight: 500;
       transition: color 0.3s;
+      display: block;
     }
     .topnav a:hover { color: #f6c85f; }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 26px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .menu-toggle.active i::before {
+      content: "\f00d"; /* FontAwesome close icon */
+    }
 
     /* Heading */
     h1 {
@@ -113,12 +130,25 @@
     /* Responsive */
     @media(max-width:768px) {
       h1 { font-size:2.2em; margin-top:60px; }
-      .topnav a { margin:8px 12px; font-size:16px; }
+      .topnav {
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+      }
+      .topnav.show {
+        max-height: 500px; /* enough to show menu */
+      }
+      .topnav a { margin:12px; font-size:16px; }
       .white-bottom { padding:25px; }
+      .menu-toggle { display: block; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Hamburger Button -->
+  <div class="menu-toggle"><i class="fas fa-bars"></i></div>
 
   <!-- Navbar -->
   <div class="topnav">
@@ -174,6 +204,24 @@
       gsap.to("h1", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.3});
       gsap.to(".white-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.6});
       gsap.to(".ash-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.9});
+    });
+
+    // Hamburger Menu Script
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".topnav");
+
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navbar.classList.toggle("show");
+      menuToggle.classList.toggle("active");
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (navbar.classList.contains("show") && !navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+        navbar.classList.remove("show");
+        menuToggle.classList.remove("active");
+      }
     });
   </script>
 
