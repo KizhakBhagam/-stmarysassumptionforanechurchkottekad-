@@ -17,7 +17,7 @@
   <style>
     *{margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif;}
     body{
-      background: #e4d79efb;
+      background:url('index.jpg');
       overflow-x:hidden;
     }
 
@@ -26,9 +26,10 @@
       display:flex;
       justify-content:center;
       padding:20px;
-      background:rgb(63, 59, 59);
+      background:rgba(0,0,0,0.6);
       flex-wrap:wrap;
       opacity:0;
+      position:relative;
     }
     .navbar a{
       color:#fff;
@@ -39,18 +40,33 @@
     }
     .navbar a:hover{color:#f6c85f;}
 
+    /* Hamburger */
+    .menu-toggle{
+      display:none;
+      position:absolute;
+      right:20px;
+      top:20px;
+      font-size:26px;
+      color:#fff;
+      cursor:pointer;
+      z-index:1000;
+    }
+    .menu-toggle.active i::before{
+      content:"\f00d"; /* FontAwesome close icon */
+    }
+
     /* White Content */
     .white-bottom{
       max-width:1100px;
       margin:40px auto;
-      background:#fff;
+      background:rgba(255, 255, 255, 0.719);
       padding:40px;
       border-radius:15px;
       color:#333;
       opacity:0;
       transform:translateY(50px);
     }
-    .white-bottom h2{text-align:center; color:#be8719; margin-bottom:10px;}
+    .white-bottom h2{text-align:center; color:#ddc24cda; margin-bottom:10px;}
     .white-bottom h5{text-align:center; color:#ddc24cda; margin-bottom:20px;}
     .white-bottom p{font-size:16px; line-height:1.7; margin-bottom:1px; text-align:justify;}
 
@@ -67,7 +83,7 @@
     }
     .image-container img{
       width:100%;
-      height:auto;          /* responsive fix */
+      height:auto;     /* makes responsive */
       display:block;
       object-fit:cover;
     }
@@ -105,7 +121,21 @@
 
     /* Responsive */
     @media(max-width:768px){
-      .navbar a{font-size:16px; margin:6px 12px;}
+      .navbar{
+        flex-direction:column;
+        align-items:center;
+        display:none; /* hide initially */
+      }
+      .navbar.show{
+        display:flex;
+      }
+      .navbar a{
+        font-size:16px;
+        margin:8px 0;
+      }
+      .menu-toggle{
+        display:block;
+      }
       .text-overlay{width:90%; top:5%; font-size:14px;}
       .text-overlay h2{font-size:18px;}
       .white-bottom{padding:25px;}
@@ -114,6 +144,9 @@
 </head>
 <body>
   
+  <!-- Hamburger Button -->
+  <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+
   <!-- Navbar -->
   <div class="navbar">
     <a href="index.html">Home</a>
@@ -168,7 +201,7 @@
     <p>Developed By: SHEEN C NIXON</p>
   </div>
 
-  <!-- GSAP Animations -->
+  <!-- GSAP Animations + Navbar toggle -->
   <script>
     window.addEventListener('load', () => {
       gsap.to(".navbar",{duration:1,opacity:1,y:0,ease:"power2.out"});
@@ -176,8 +209,31 @@
       gsap.to(".image-container",{duration:1,opacity:1,y:0,ease:"power2.out",delay:0.6,stagger:0.2});
       gsap.to(".footer",{duration:1,opacity:1,y:0,ease:"power2.out",delay:1});
     });
+
+    // Hamburger menu toggle
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
+
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navbar.classList.toggle("show");
+      menuToggle.classList.toggle("active");
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (navbar.classList.contains("show") && !navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+        navbar.classList.remove("show");
+        menuToggle.classList.remove("active");
+      }
+    });
   </script>
 
 </body>
 </html>
+
+
+</body>
+</html>
+
 
