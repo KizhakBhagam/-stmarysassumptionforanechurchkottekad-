@@ -11,7 +11,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- GSAP Animation Library -->
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 
   <style>
@@ -24,22 +24,38 @@
     }
 
     /* Navbar */
-    .topnav {
+    .navbar {
       display: flex;
       justify-content: center;
       padding: 20px;
       background: rgba(0,0,0,0.6);
       flex-wrap: wrap;
       opacity: 0;
+      position: relative;
     }
-    .topnav a {
+    .navbar a {
       color: #fff;
       text-decoration: none;
       margin: 10px 20px;
       font-weight: 500;
       transition: color 0.3s;
     }
-    .topnav a:hover { color: #f6c85f; }
+    .navbar a:hover { color: #f6c85f; }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 26px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .menu-toggle.active i::before {
+      content:"\f00d"; /* FontAwesome close icon */
+    }
 
     /* Heading */
     h1 {
@@ -71,6 +87,9 @@
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.2);
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
     }
     .event-date {
       width: 90px;
@@ -83,13 +102,15 @@
       justify-content: center;
       align-items: center;
       font-weight: bold;
+      text-align: center;
     }
     .event-date h2 { margin: 0; font-size: 28px; }
     .event-date span { font-size: 12px; text-transform: uppercase; }
 
     .event-details { flex: 1; }
     .event-title { font-size: 18px; margin: 0 0 8px; color: #ffe680; }
-    .time { font-size: 15px; opacity: 0.9; }
+    .time { font-size: 15px; opacity: 0.9; display: flex; align-items: center; gap: 6px; justify-content: center; }
+    .time i { color: #fff; }
 
     /* Footer */
     .ash-bottom {
@@ -120,17 +141,32 @@
 
     /* Responsive */
     @media(max-width:768px) {
+      .navbar { 
+        flex-direction: column; 
+        align-items: center; 
+        display: none; 
+      }
+      .navbar.show { display: flex; }
+      .navbar a { font-size: 16px; margin: 8px 0; }
+      .menu-toggle { display: block; }
+
       h1 { font-size:2.2em; margin-top:60px; }
-      .topnav a { margin:8px 12px; font-size:16px; }
-      .event-card { flex-direction: column; align-items: flex-start; }
-      .event-date { width: 100%; flex-direction: row; justify-content: space-between; padding: 10px; }
+      .event-card { flex-direction: column; text-align: center; justify-content: center; }
+      .event-date {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Hamburger -->
+  <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+
   <!-- Navbar -->
-  <div class="topnav">
+  <div class="navbar">
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="events.html">Events</a>
@@ -143,12 +179,11 @@
 
   <!-- Event Section -->
   <div class="event-section">
-
     <div class="event-card">
       <div class="event-date"><h2>09</h2><span>OCT</span></div>
       <div class="event-details">
         <p class="event-title">കൊടിയേറ്റം</p>
-        <p class="time">🕒 8:00-AM</p>
+        <p class="time"><i class="far fa-clock"></i> 8:00-AM</p>
       </div>
     </div>
 
@@ -156,7 +191,7 @@
       <div class="event-date"><h2>18</h2><span>OCT</span></div>
       <div class="event-details">
         <p class="event-title">വി.കുർബ്ബാന, ലദീഞ്ഞ്, കൂടുതുറക്കൽ, രൂപം എഴുന്നള്ളിക്കൽ, പ്രദക്ഷിണം, നൊവേന</p>
-        <p class="time">🕒 5:30-PM</p>
+        <p class="time"><i class="far fa-clock"></i> 5:30-PM</p>
       </div>
     </div>
 
@@ -164,11 +199,11 @@
       <div class="event-date"><h2>19</h2><span>OCT</span></div>
       <div class="event-details">
         <p class="event-title">വി.കുർബാന</p>
-        <p class="time">🕒 6:00-AM | 8:00-AM | 4:00-PM</p>
+        <p class="time"><i class="far fa-clock"></i> 6:00-AM | 8:00-AM | 4:00-PM</p>
       </div>
       <div class="event-details">
         <p class="event-title">ആഘോഷമായ തിരുന്നാൾ പാട്ടു കുർബ്ബാന, തിരുന്നാൾ സന്ദേശം</p>
-        <p class="time">🕒 10:00-AM</p>
+        <p class="time"><i class="far fa-clock"></i> 10:00-AM</p>
       </div>
     </div>
 
@@ -176,10 +211,9 @@
       <div class="event-date"><h2>26</h2><span>OCT</span></div>
       <div class="event-details">
         <p class="event-title">(എട്ടാമിടം) പാട്ടു കുർബ്ബാന, ജപമാല പ്രദക്ഷിണം, ലദീഞ്ഞ്, നൊവേന</p>
-        <p class="time">🕒 9:00-AM | 3:00-PM</p>
+        <p class="time"><i class="far fa-clock"></i> 5:00-PM</p>
       </div>
     </div>
-
   </div>
 
   <!-- Footer -->
@@ -200,15 +234,33 @@
     <p>Developed By: SHEEN C NIXON</p>
   </div>
 
-  <!-- JS Animation -->
+  <!-- GSAP + Navbar Toggle -->
   <script>
     window.addEventListener('load', () => {
-      gsap.to(".topnav", {duration:1, opacity:1, y:0, ease:"power2.out"});
-      gsap.to("h1", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.3});
-      gsap.to(".event-section", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.6});
-      gsap.to(".ash-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.9});
+      gsap.to(".navbar",{duration:1,opacity:1,y:0,ease:"power2.out"});
+      gsap.to("h1",{duration:1,opacity:1,y:0,ease:"power2.out",delay:0.3});
+      gsap.to(".event-section",{duration:1,opacity:1,y:0,ease:"power2.out",delay:0.6});
+      gsap.to(".ash-bottom",{duration:1,opacity:1,y:0,ease:"power2.out",delay:0.9});
+    });
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
+
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navbar.classList.toggle("show");
+      menuToggle.classList.toggle("active");
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (navbar.classList.contains("show") && !navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+        navbar.classList.remove("show");
+        menuToggle.classList.remove("active");
+      }
     });
   </script>
 
 </body>
 </html>
+
