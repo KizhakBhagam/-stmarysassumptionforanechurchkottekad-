@@ -15,133 +15,122 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-    body {
+    *{margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif;}
+    body{
       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('portfolio.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
-      overflow-x: hidden;
+      color:#fff;
+      overflow-x:hidden;
     }
 
     /* Navbar */
-    .topnav {
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-      flex-wrap: wrap;
-      opacity: 0;
-      transition: max-height 0.4s ease;
+    .navbar{
+      display:flex;
+      justify-content:center;
+      padding:20px;
+      background:rgba(0,0,0,0.6);
+      flex-wrap:wrap;
+      opacity:0;
+      position:relative;
     }
-    .topnav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 10px 20px;
-      font-weight: 500;
-      transition: color 0.3s;
-      display: block;
+    .navbar a{
+      color:#fff;
+      text-decoration:none;
+      margin:10px 20px;
+      font-weight:500;
+      transition:color 0.3s;
     }
-    .topnav a:hover { color: #f6c85f; }
+    .navbar a:hover{color:#f6c85f;}
 
     /* Hamburger */
-    .menu-toggle {
-      display: none;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      font-size: 26px;
-      color: #fff;
-      cursor: pointer;
-      z-index: 1000;
+    .menu-toggle{
+      display:none;
+      position:absolute;
+      right:20px;
+      top:20px;
+      font-size:26px;
+      color:#fff;
+      cursor:pointer;
+      z-index:1000;
     }
-    .menu-toggle.active i::before {
-      content: "\f00d"; /* FontAwesome close icon */
+    .menu-toggle.active i::before{
+      content:"\f00d"; /* FontAwesome close icon */
     }
 
     /* Heading */
-    h1 {
-      text-align: center;
-      margin: 80px 20px 40px 20px;
-      font-size: 3em;
-      color: #f6c85f;
-      opacity: 0;
-      transform: translateY(50px);
+    h1{
+      text-align:center;
+      margin:80px 20px 40px 20px;
+      font-size:3em;
+      color:#f6c85f;
+      opacity:0;
+      transform:translateY(50px);
     }
 
     /* White Content Box */
-    .white-bottom {
-      max-width: 1100px;
-      margin: 40px auto;
-      background: rgba(255,255,255,0.95);
-      padding: 40px;
-      border-radius: 15px;
-      color: #333;
-      opacity: 0;
-      transform: translateY(50px);
+    .white-bottom{
+      max-width:1100px;
+      margin:40px auto;
+      background:rgba(255,255,255,0.95);
+      padding:40px;
+      border-radius:15px;
+      color:#333;
+      opacity:0;
+      transform:translateY(50px);
     }
 
     /* Video gallery */
-    .video-gallery { text-align: center; }
-    .video-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    .video-gallery{text-align:center;}
+    .video-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
     }
-    .video-box {
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    .video-box{
+      background:#fff;
+      padding:10px;
+      border-radius:10px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.25);
     }
     .video-box video,
-    .video-box img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
+    .video-box img{
+      width:100%;
+      border-radius:8px;
+      object-fit:cover;
     }
 
     /* Footer */
-    .ash-bottom {
-      max-width: 1100px;
-      margin: 40px auto;
-      background: rgba(51,51,51,0.85);
-      padding: 40px;
-      text-align: center;
-      border-radius: 15px;
-      color: #fff;
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    .ash-bottom h3 { margin-bottom: 15px; color:#f6c85f; }
-    .ash-bottom p { font-size:16px; line-height:1.6; margin-bottom:10px; }
-    .social-icons {
-      margin:15px 0;
-      display:flex;
-      justify-content:center;
-      gap:15px;
-    }
-    .social-icons a {
+    .ash-bottom{
+      max-width:1100px;
+      margin:40px auto;
+      background:rgba(51,51,51,0.85);
+      padding:40px;
+      text-align:center;
+      border-radius:15px;
       color:#fff;
-      font-size:22px;
-      transition: transform 0.3s, color 0.3s;
+      opacity:0;
+      transform:translateY(50px);
     }
-    .social-icons a:hover { color:#f6c85f; transform: scale(1.2); }
+    .ash-bottom h3{margin-bottom:15px; color:#f6c85f;}
+    .ash-bottom p{font-size:16px; line-height:1.6; margin-bottom:10px;}
+    .social-icons{margin:15px 0; display:flex; justify-content:center; gap:15px;}
+    .social-icons a{color:#fff; font-size:22px; transition:transform 0.3s,color 0.3s;}
+    .social-icons a:hover{color:#f6c85f; transform:scale(1.2);}
 
     /* Responsive */
-    @media(max-width:768px) {
-      h1 { font-size:2.2em; margin-top:60px; }
-      .topnav {
-        flex-direction: column;
-        align-items: center;
-        max-height: 0;
-        overflow: hidden;
+    @media(max-width:768px){
+      h1{font-size:2.2em; margin-top:60px;}
+      .navbar{
+        flex-direction:column;
+        align-items:center;
+        display:none;
       }
-      .topnav.show {
-        max-height: 500px; /* enough to show menu */
+      .navbar.show{
+        display:flex;
       }
-      .topnav a { margin:12px; font-size:16px; }
-      .white-bottom { padding:25px; }
-      .menu-toggle { display: block; }
+      .navbar a{font-size:16px; margin:8px 0;}
+      .white-bottom{padding:25px;}
+      .menu-toggle{display:block;}
     }
   </style>
 </head>
@@ -151,7 +140,7 @@
   <div class="menu-toggle"><i class="fas fa-bars"></i></div>
 
   <!-- Navbar -->
-  <div class="topnav">
+  <div class="navbar">
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="events.html">Events</a>
@@ -182,7 +171,7 @@
   <!-- Footer -->
   <div class="ash-bottom">
     <h3>St.Mary's Church Kottekad</h3>
-    <p> 9400135253</p>
+    <p>9400135253</p>
     <p>✉ kizhakbhagam@gmail.com</p>
     <p>
       St. Mary's Assumption Forane Church <br>
@@ -197,18 +186,18 @@
     <p>Developed By: SHEEN C NIXON</p>
   </div>
 
-  <!-- GSAP Animations -->
+  <!-- GSAP Animations + Navbar toggle -->
   <script>
     window.addEventListener('load', () => {
-      gsap.to(".topnav", {duration:1, opacity:1, y:0, ease:"power2.out"});
-      gsap.to("h1", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.3});
-      gsap.to(".white-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.6});
-      gsap.to(".ash-bottom", {duration:1, opacity:1, y:0, ease:"power2.out", delay:0.9});
+      gsap.to(".navbar",{duration:1,opacity:1,y:0,ease:"power2.out"});
+      gsap.to("h1",{duration:1,opacity:1,y:0,ease:"power2.out",delay:0.3});
+      gsap.to(".white-bottom",{duration:1,opacity:1,y:0,ease:"power2.out",delay:0.6});
+      gsap.to(".ash-bottom",{duration:1,opacity:1,y:0,ease:"power2.out",delay:0.9});
     });
 
-    // Hamburger Menu Script
+    // Hamburger menu toggle
     const menuToggle = document.querySelector(".menu-toggle");
-    const navbar = document.querySelector(".topnav");
+    const navbar = document.querySelector(".navbar");
 
     menuToggle.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -227,3 +216,5 @@
 
 </body>
 </html>
+
+
