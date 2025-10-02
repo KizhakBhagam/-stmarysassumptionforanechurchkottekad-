@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stmaryschurchkottekad.github.io/sitemap.xml
